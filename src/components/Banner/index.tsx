@@ -1,13 +1,19 @@
 import MacarraoBanner from '../../assets/images/image2.png'
-import { ContainerBanner, ContainerText } from './styles'
+import {
+  CategoryText,
+  ContainerBanner,
+  ContainerText,
+  ItalianaText
+} from './styles'
 
 const Banner = () => {
   return (
     <>
-      <ContainerBanner style={{ backgroundImage: `url(${MacarraoBanner})` }}>
+      <ContainerBanner /*style={{ backgroundImage: `url(${MacarraoBanner})` }}*/
+      >
         <ContainerText>
-          <span>Italiana</span>
-          <p>La Dolce Vita Trattoria</p>
+          <ItalianaText>Italiana</ItalianaText>
+          <CategoryText>La Dolce Vita Trattoria</CategoryText>
         </ContainerText>
       </ContainerBanner>
     </>

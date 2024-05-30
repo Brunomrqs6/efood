@@ -7,26 +7,27 @@ export const ContainerBanner = styled.div`
   height: 280px;
   position: relative;
   background-size: cover;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(${MacarraoFundo});
 `
 
 export const ContainerText = styled.div`
   width: 1024px;
   margin: 0 auto;
-
-  span {
-    color: ${cores.branco};
-    font-size: 32px;
-    font-weight: 100;
-    position: absolute;
-    top: 25px;
-  }
-
-  p {
-    color: ${cores.branco};
-    position: absolute;
-    font-size: 32px;
-    font-weight: 900;
-    line-height: 38px;
-    bottom: 25px;
-  }
+`
+export const ItalianaText = styled.p`
+  color: ${cores.branco};
+  font-size: 32px;
+  font-weight: 100;
+  line-height: 38px;
+  position: absolute;
+  top: 25px;
+`
+export const CategoryText = styled.p`
+  color: ${cores.branco};
+  position: absolute;
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 38px;
+  bottom: 25px;
 `
