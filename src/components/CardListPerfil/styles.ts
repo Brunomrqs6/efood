@@ -4,7 +4,7 @@ export const ContainerCardList = styled.div`
   max-width: 1024px;
   width: 100%;
   margin: 0 auto;
-  margin-top: 80px;
+  margin-top: 56px;
 `
 
 export const List = styled.ul`

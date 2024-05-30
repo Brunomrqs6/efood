@@ -9,42 +9,42 @@ const foodPerfil: FoodPerfil[] = [
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 1
   },
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 2
   },
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 3
   },
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 4
   },
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 5
   },
   {
     title: 'Pizza Marguerita',
     description:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão </br> fresco e um toque de azeite. Sabor e simplicidade!',
+      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!',
     image: `${PizzaImage}`,
     id: 6
   }

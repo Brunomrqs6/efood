@@ -5,7 +5,6 @@ export const CardContent = styled.div`
   width: 472px;
   position: relative;
   font-size: 18px;
-  border: 1px solid ${cores.vermelho};
   border-radius: 2px;
   margin-bottom: 80px;
 
@@ -13,6 +12,11 @@ export const CardContent = styled.div`
     width: 100%;
     border-radius: 2px;
   }
+`
+
+export const CardTextContent = styled.div`
+  border: 1px solid ${cores.vermelho};
+  margin-top: -6px;
 `
 export const CardText = styled.div`
   display: flex;
@@ -31,6 +35,7 @@ export const CardText = styled.div`
 `
 export const Description = styled.p`
   font-size: 14px;
+  line-height: 22px;
   margin: 16px 8px;
 `
 export const Button = styled.button`
@@ -39,11 +44,24 @@ export const Button = styled.button`
   border: none;
   padding: 4px 6px;
   margin-left: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
   cursor: pointer;
 `
 export const TagDiv = styled.div`
   position: absolute;
   top: 16px;
   right: 16px;
+`
+export const NoteDiv = styled.div`
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  img {
+    width: 21px;
+    height: 20px;
+    margin-left: 8px;
+    margin-top: -3px;
+    top: 0.5;
+  }
 `

@@ -27,6 +27,7 @@ export const CardPerfil = styled.ul`
     margin-left: 8px;
     margin-top: 8px;
     margin-bottom: 8px;
+    width: 304px;
   }
 `
 
