@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { cores } from '../../styles'
 
 export const ContainerCardList = styled.div`
   max-width: 1024px;

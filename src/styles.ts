@@ -19,6 +19,13 @@ const GlobalCss = createGlobalStyle`
     background-color: ${cores.brancoLaranjado};
     color: ${cores.vermelho};
   }
+
+  .container {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
 `
 
 export default GlobalCss
