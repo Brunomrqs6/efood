@@ -45,7 +45,7 @@ const Card = ({
           </NoteDiv>
         </CardText>
         <Description>{descricao}</Description>
-        <Link to="/perfil">
+        <Link to="/cardapio">
           <Button>Saiba Mais</Button>
         </Link>
       </CardTextContent>

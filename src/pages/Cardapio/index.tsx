@@ -6,15 +6,24 @@ import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import { Cardapio, Food } from '../Home'
 
 const Perfil = () => {
   const { id } = useParams()
+
+  const [cardapio, setCardapio] = useState<Cardapio[]>([])
+
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+      .then((res) => res.json())
+      .then((res) => setCardapio(res))
+  }, [])
 
   return (
     <>
       <Header headerBig={false} />
       <Banner />
-      <CardListPerfil cardapioList={} />
+      <CardListPerfil cardapioList={cardapio} />
       <Footer />
     </>
   )

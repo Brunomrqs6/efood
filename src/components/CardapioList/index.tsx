@@ -12,14 +12,14 @@ const CardListPerfil = ({ cardapioList }: Props) => {
     <>
       <ContainerCardList>
         <List>
-          {cardapioList.map((food) => (
+          {cardapioList.map((cardapio) => (
             <CardPerfilItem
-              key={food.id}
-              nome={food.nome}
-              descricao={food.descricao}
-              foto={food.foto}
-              porcao={food.porcao}
-              preco={food.preco}
+              descricao={cardapio.nome}
+              foto={cardapio.foto}
+              nome={cardapio.nome}
+              porcao={cardapio.porcao}
+              preco={cardapio.preco}
+              key={cardapio.id}
             />
           ))}
         </List>

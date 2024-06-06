@@ -5,7 +5,7 @@ import Macarrao from '../../assets/images/image 1.png'
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
 
-export type Cardapio = {
+export interface Cardapio {
   foto: string
   preco: number
   id: number
