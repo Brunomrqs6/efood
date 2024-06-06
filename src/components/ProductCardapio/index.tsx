@@ -6,21 +6,23 @@ import fechar from '../../assets/images/close 1.png'
 import { useState } from 'react'
 
 type Props = {
-  title: string
-  description: string
-  image: string
+  foto: string
+  nome: string
+  descricao: string
+  porcao: string
+  preco: number
 }
 
-const CardPerfilItem = ({ title, description, image }: Props) => {
+const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
   return (
     <>
       <section>
         <CardPerfil>
-          <img src={image} alt={title} />
-          <h3>{title}</h3>
-          <p>{description}</p>
+          <img src={foto} alt={nome} />
+          <h3>{nome}</h3>
+          <p>{descricao}</p>
           <ButtonCard
             onClick={() => {
               setModalIsVisible(true)
@@ -50,10 +52,12 @@ const CardPerfilItem = ({ title, description, image }: Props) => {
                 o queijo derretido e cremoso e as folhas de manjericão frescas,
                 que adicionam um toque de sabor herbáceo. É uma pizza simples,
                 mas deliciosa, que agrada a todos os paladares e é uma ótima
-                opção para qualquer ocasião. <br /> <br /> <br /> Serve: de 2 a
-                3 pessoas
+                opção para qualquer ocasião.
               </p>
-              <button>Adicionar ao carrinho - R$ 60,90</button>
+              <p>{porcao}</p>
+              <button>
+                Adicionar ao carrinho - <span>{preco}</span>
+              </button>
             </div>
           </ModalBody>
         </ModalContent>

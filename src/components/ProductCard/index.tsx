@@ -12,31 +12,39 @@ import {
 import estrelaImagem from '../../assets/images/estrela.png'
 
 type Props = {
-  title: string
-  note: string
-  description: string
-  image: string
-  infos: string[]
+  id: number
+  titulo: string
+  avaliacao: number
+  descricao: string
+  capa: string
+  tipo: string
+  destacado: boolean
 }
 
-const Card = ({ title, note, description, image, infos }: Props) => {
+const Card = ({
+  id,
+  titulo,
+  avaliacao,
+  descricao,
+  capa,
+  tipo,
+  destacado = false
+}: Props) => {
   return (
     <CardContent>
-      <img src={image} alt={title} />
+      <img src={capa} alt={titulo} />
       <TagDiv>
-        {infos.map((info) => (
-          <Tag key={info}>{info}</Tag>
-        ))}
+        <Tag key={tipo}>{tipo}</Tag>
       </TagDiv>
       <CardTextContent>
         <CardText>
-          <p>{title}</p>
+          <p>{titulo}</p>
           <NoteDiv>
-            <p>{note}</p>
-            <img src={estrelaImagem} alt="Estrela logo" />
+            <p>{avaliacao}</p>
+            {destacado && <img src={estrelaImagem} alt="Estrela logo" />}
           </NoteDiv>
         </CardText>
-        <Description>{description}</Description>
+        <Description>{descricao}</Description>
         <Link to="/perfil">
           <Button>Saiba Mais</Button>
         </Link>

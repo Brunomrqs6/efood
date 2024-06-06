@@ -9,7 +9,10 @@ export const CardContent = styled.div`
   margin-bottom: 80px;
 
   img {
+    max-width: 472px;
+    height: 217px;
     width: 100%;
+    object-fit: cover;
     border-radius: 2px;
   }
 `

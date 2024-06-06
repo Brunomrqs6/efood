@@ -1,6 +1,6 @@
+import { Food } from '../../pages/Home'
 import Card from '../ProductCard'
 import { ContainerList, List } from './styles'
-import Food from '../../models/Food'
 
 export type Props = {
   foods: Food[]
@@ -14,11 +14,13 @@ const CardList = ({ foods }: Props) => {
           {foods.map((food) => (
             <Card
               key={food.id}
-              title={food.title}
-              description={food.description}
-              image={food.image}
-              note={food.note}
-              infos={food.infos}
+              titulo={food.titulo}
+              descricao={food.descricao}
+              capa={food.capa}
+              avaliacao={food.avaliacao}
+              id={food.id}
+              tipo={food.tipo}
+              destacado={food.destacado}
             />
           ))}
         </List>
