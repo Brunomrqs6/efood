@@ -1,4 +1,5 @@
 import MacarraoBanner from '../../assets/images/image2.png'
+import { Restaurante } from '../../pages/Home'
 import {
   CategoryText,
   ContainerBanner,
@@ -6,14 +7,17 @@ import {
   ItalianaText
 } from './styles'
 
-const Banner = () => {
+export type Props = {
+  restaurante: Restaurante
+}
+
+const Banner = ({ restaurante }: Props) => {
   return (
     <>
-      <ContainerBanner /*style={{ backgroundImage: `url(${MacarraoBanner})` }}*/
-      >
+      <ContainerBanner style={{ backgroundImage: `url(${restaurante.capa})` }}>
         <ContainerText>
-          <ItalianaText>Italiana</ItalianaText>
-          <CategoryText>La Dolce Vita Trattoria</CategoryText>
+          <ItalianaText>{restaurante.tipo}</ItalianaText>
+          <CategoryText>{restaurante.titulo}</CategoryText>
         </ContainerText>
       </ContainerBanner>
     </>

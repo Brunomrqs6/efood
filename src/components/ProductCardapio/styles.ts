@@ -6,11 +6,20 @@ export const CardPerfil = styled.ul`
   height: 338px;
   color: ${cores.bege};
   background-color: ${cores.vermelho};
+  position: relative;
+
   margin-bottom: 32px;
 
-  img {
-    display: flex;
+  > div {
+    max-width: 320px;
+
     padding: 8px;
+
+    img {
+      width: 100%;
+      height: 167px;
+      object-fit: cover;
+    }
   }
 
   h3 {
@@ -32,10 +41,7 @@ export const CardPerfil = styled.ul`
 `
 
 export const ButtonCard = styled.button`
-  display: flex;
   padding: 4px 86px;
-  margin: 0 auto;
-  justify-content: center;
   border: none;
   background-color: ${cores.bege};
   color: ${cores.vermelho};
@@ -44,6 +50,9 @@ export const ButtonCard = styled.button`
   cursor: pointer;
   width: 100%;
   max-width: 304px;
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
 `
 export const Modal = styled.div`
   position: fixed;
@@ -93,6 +102,12 @@ export const ModalBody = styled.div`
   color: ${cores.branco};
   display: flex;
 
+  img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+  }
+
   div {
     max-width: 656px;
     margin-left: 24px;
@@ -112,13 +127,15 @@ export const ModalBody = styled.div`
     }
 
     button {
+      position: absolute;
       margin-top: 16px;
       background-color: ${cores.bege};
       color: ${cores.vermelho};
       border: none;
       padding: 4px 6px;
       cursor: pointer;
-      margin-top: 21px;
+      margin-bottom: 32px;
+      bottom: 0;
     }
   }
 `

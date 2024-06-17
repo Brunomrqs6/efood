@@ -1,25 +1,24 @@
-import { Food } from '../../pages/Home'
-import { Cardapio } from '../../pages/Home'
+import { Cardapio, Restaurante } from '../../pages/Home'
 import CardPerfilItem from '../ProductCardapio'
 import { ContainerCardList, List } from './styles'
 
 export type Props = {
-  cardapioList: Cardapio[]
+  items: Cardapio[]
 }
 
-const CardListPerfil = ({ cardapioList }: Props) => {
+const CardListPerfil = ({ items }: Props) => {
   return (
     <>
       <ContainerCardList>
         <List>
-          {cardapioList.map((c) => (
-            <li key={c.id}>
+          {items.map((item) => (
+            <li key={item.id}>
               <CardPerfilItem
-                descricao={c.descricao}
-                foto={c.foto}
-                nome={c.nome}
-                porcao={c.porcao}
-                preco={c.preco}
+                descricao={item.descricao}
+                foto={item.foto}
+                nome={item.nome}
+                porcao={item.porcao}
+                preco={item.preco}
               />
             </li>
           ))}

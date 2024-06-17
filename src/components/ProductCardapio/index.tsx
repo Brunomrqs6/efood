@@ -16,13 +16,29 @@ type Props = {
 const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
+  const getDescricao = (descricao: string) => {
+    if (descricao.length > 150) {
+      return descricao.slice(0, 147) + '...'
+    }
+    return descricao
+  }
+
+  const formataPreco = (preco = 0) => {
+    return new Intl.NumberFormat('pt-BR', {
+      style: 'currency',
+      currency: 'BRL'
+    }).format(preco)
+  }
+
   return (
     <>
       <section>
         <CardPerfil>
-          <img src={foto} alt={nome} />
+          <div>
+            <img src={foto} alt={nome} />
+          </div>
           <h3>{nome}</h3>
-          <p>{descricao}</p>
+          <p>{getDescricao(descricao)}</p>
           <ButtonCard
             onClick={() => {
               setModalIsVisible(true)
@@ -39,24 +55,15 @@ const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
             <img onClick={() => setModalIsVisible(false)} src={fechar} alt="" />
           </header>
           <ModalBody>
-            <img src={pizzaImg} />
+            <img src={foto} />
             <div>
-              <h4>Pizza Marguerita</h4>
+              <h4>{nome}</h4>
               <p>
-                A pizza Margherita é uma pizza clássica da culinária italiana,
-                reconhecida por sua simplicidade e sabor inigualável. Ela é
-                feita com uma base de massa fina e crocante, coberta com molho
-                de tomate fresco, queijo mussarela de alta qualidade, manjericão
-                fresco e azeite de oliva extra-virgem. A combinação de sabores é
-                perfeita, com o molho de tomate suculento e ligeiramente ácido,
-                o queijo derretido e cremoso e as folhas de manjericão frescas,
-                que adicionam um toque de sabor herbáceo. É uma pizza simples,
-                mas deliciosa, que agrada a todos os paladares e é uma ótima
-                opção para qualquer ocasião.
+                {descricao} <br /> <br />{' '}
               </p>
-              <p>{porcao}</p>
+              <p>Serve: de {porcao}</p>
               <button>
-                Adicionar ao carrinho - <span>{preco}</span>
+                Adicionar ao carrinho - <span>{formataPreco(preco)}</span>
               </button>
             </div>
           </ModalBody>

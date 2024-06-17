@@ -4,8 +4,9 @@ import Sushi from '../../assets/images/Sushi.png'
 import Macarrao from '../../assets/images/image 1.png'
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
-export interface Cardapio {
+export type Cardapio = {
   foto: string
   preco: number
   id: number
@@ -14,7 +15,7 @@ export interface Cardapio {
   porcao: string
 }
 
-export type Food = {
+export type Restaurante = {
   id: number
   titulo: string
   destacado: boolean
@@ -26,18 +27,19 @@ export type Food = {
 }
 
 const Home = () => {
-  const [foods, setFoods] = useState<Food[]>([])
+  const { id } = useParams()
+  const [restauntes, setRestaurantes] = useState<Restaurante[]>([])
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes')
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes`)
       .then((res) => res.json())
-      .then((res) => setFoods(res))
+      .then((res) => setRestaurantes(res))
   }, [])
 
   return (
     <>
       <Header headerBig={true} />
-      <CardList foods={foods} />
+      <CardList restaurantes={restauntes} />
       <Footer />
     </>
   )

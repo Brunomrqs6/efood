@@ -1,14 +1,23 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 import MacarraoFundo from '../../assets/images/image2.png'
+import { Restaurante } from '../../pages/Home'
 
 export const ContainerBanner = styled.div`
   width: 100%;
   height: 280px;
   position: relative;
   background-size: cover;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(${MacarraoFundo});
+
+  &::after {
+    position: absolute;
+    width: 100%;
+    height: 280px;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: '';
+  }
 `
 
 export const ContainerText = styled.div`
@@ -22,6 +31,7 @@ export const ItalianaText = styled.p`
   line-height: 38px;
   position: absolute;
   top: 25px;
+  z-index: 1;
 `
 export const CategoryText = styled.p`
   color: ${cores.branco};
@@ -30,4 +40,5 @@ export const CategoryText = styled.p`
   font-weight: 900;
   line-height: 38px;
   bottom: 25px;
+  z-index: 1;
 `
