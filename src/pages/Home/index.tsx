@@ -27,7 +27,6 @@ export type Restaurante = {
 }
 
 const Home = () => {
-  const { id } = useParams()
   const [restauntes, setRestaurantes] = useState<Restaurante[]>([])
 
   useEffect(() => {
@@ -35,6 +34,10 @@ const Home = () => {
       .then((res) => res.json())
       .then((res) => setRestaurantes(res))
   }, [])
+
+  if (!restauntes) {
+    return <h3>Carregando...</h3>
+  }
 
   return (
     <>

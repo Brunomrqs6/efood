@@ -32,6 +32,7 @@ export const ItalianaText = styled.p`
   position: absolute;
   top: 25px;
   z-index: 1;
+  text-transform: capitalize;
 `
 export const CategoryText = styled.p`
   color: ${cores.branco};
