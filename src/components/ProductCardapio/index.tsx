@@ -4,6 +4,9 @@ import { ButtonCard, CardPerfil } from './styles'
 import pizzaImg from '../../assets/images/pizza2.png'
 import fechar from '../../assets/images/close 1.png'
 import { useState } from 'react'
+import { add } from '../../store/reducers/cart'
+import { useDispatch } from 'react-redux'
+import { Cardapio } from '../../pages/Home'
 
 type Props = {
   foto: string
@@ -14,6 +17,8 @@ type Props = {
 }
 
 const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
+  const dispatch = useDispatch()
+
   const [modalIsVisible, setModalIsVisible] = useState(false)
 
   const getDescricao = (descricao: string) => {
@@ -28,6 +33,10 @@ const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
       style: 'currency',
       currency: 'BRL'
     }).format(preco)
+  }
+
+  const addToCart = () => {
+    dispatch(add())
   }
 
   return (

@@ -9,16 +9,11 @@ import { useParams } from 'react-router-dom'
 import { Restaurante } from '../Home'
 // import { Cardapio, Food } from '../Home'
 
+import { useGetCardapioQuery } from '../../services/api'
+
 const CardapioList = () => {
   const { id } = useParams()
-
-  const [cardapio, setCardapio] = useState<Restaurante>()
-
-  useEffect(() => {
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((res) => setCardapio(res))
-  }, [id])
+  const { data: cardapio } = useGetCardapioQuery(id!)
 
   if (!cardapio) {
     return <h3>Carregando...</h3>

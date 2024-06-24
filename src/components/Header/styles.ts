@@ -1,9 +1,14 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
+import { Link } from 'react-router-dom'
 
 export const ContainerHeader = styled.div`
   width: 100%;
   height: 260px;
+`
+export const LinkItem = styled(Link)`
+  text-decoration: none;
+  color: ${cores.vermelho};
 `
 
 export const HeaderContent = styled.header`
@@ -36,5 +41,9 @@ export const ContainerHeaderPerfil = styled.div`
     margin: 0 auto;
     font-size: 17px;
     font-weight: 900;
+
+    p {
+      cursor: pointer;
+    }
   }
 `

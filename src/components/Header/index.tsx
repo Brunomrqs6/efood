@@ -1,13 +1,27 @@
 import { Link } from 'react-router-dom'
 import fundoImagem from '../../assets/images/Vector.png'
 import logo from '../../assets/images/logo.png'
-import { ContainerHeader, ContainerHeaderPerfil, HeaderContent } from './styles'
+import {
+  ContainerHeader,
+  ContainerHeaderPerfil,
+  HeaderContent,
+  LinkItem
+} from './styles'
+import { UseSelector, useDispatch, useSelector } from 'react-redux'
+import { open } from '../../store/reducers/cart'
+import { RootReducer } from '../../store'
 
 export type Props = {
   headerBig: boolean
 }
 
 const Header = ({ headerBig }: Props) => {
+  const dispatch = useDispatch()
+
+  const openCart = () => {
+    dispatch(open())
+  }
+
   return (
     <div>
       {headerBig ? (
@@ -26,11 +40,11 @@ const Header = ({ headerBig }: Props) => {
           style={{ backgroundImage: `url(${fundoImagem})` }}
         >
           <div>
-            <p>Restaurantes</p>
+            <LinkItem to="/">Restaurantes</LinkItem>
             <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
-            <p>0 produtos(s) no carrinho</p>
+            <p onClick={openCart}>0 produtos(s) no carrinho</p>
           </div>
         </ContainerHeaderPerfil>
       )}
