@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 
 export const CardPerfil = styled.ul`
   width: 320px;
@@ -84,6 +84,11 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
 
+  @media (max-width: ${breakpoints.smartphone}) {
+    height: 650px;
+    width: 340px;
+  }
+
   header {
     display: flex;
     justify-content: space-between;
@@ -102,6 +107,10 @@ export const ModalBody = styled.div`
   color: ${cores.branco};
   display: flex;
 
+  @media (max-width: ${breakpoints.smartphone}) {
+    flex-direction: column;
+  }
+
   img {
     width: 280px;
     height: 280px;
@@ -112,6 +121,12 @@ export const ModalBody = styled.div`
     max-width: 656px;
     margin-left: 24px;
     height: 280px;
+
+    @media (max-width: ${breakpoints.smartphone}) {
+      margin-left: 0;
+      margin-top: 16px;
+      max-width: 286px;
+    }
 
     h4 {
       margin-bottom: 16px;
