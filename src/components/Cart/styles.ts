@@ -39,11 +39,13 @@ export const Item = styled.div`
   background-color: ${cores.bege};
   padding: 8px;
   border-radius: 2px;
+  margin-bottom: 8px;
 
   p {
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
+    margin-top: 16px;
   }
 
   div {
@@ -51,10 +53,9 @@ export const Item = styled.div`
   }
 `
 
-export const ProductName = styled.h3`
-  margin-bottom: 16px;
+export const ProductName = styled.span`
   font-weight: 900;
-  font-size: 18px;
+  font-size: 16px;
 `
 
 export const FoodImg = styled.img`

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { cores } from '../../styles'
+import { breakpoints, cores } from '../../styles'
 import MacarraoFundo from '../../assets/images/image2.png'
 import { Restaurante } from '../../pages/Home'
 
@@ -23,6 +23,10 @@ export const ContainerBanner = styled.div`
 export const ContainerText = styled.div`
   width: 1024px;
   margin: 0 auto;
+
+  @media (max-width: ${breakpoints.desktop}) {
+    max-width: 80%;
+  }
 `
 export const ItalianaText = styled.p`
   color: ${cores.branco};

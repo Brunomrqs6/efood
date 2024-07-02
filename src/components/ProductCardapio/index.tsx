@@ -4,19 +4,15 @@ import { ButtonCard, CardPerfil } from './styles'
 import pizzaImg from '../../assets/images/pizza2.png'
 import fechar from '../../assets/images/close 1.png'
 import { useState } from 'react'
-import { add } from '../../store/reducers/cart'
+import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
 import { Cardapio } from '../../pages/Home'
 
 type Props = {
-  foto: string
-  nome: string
-  descricao: string
-  porcao: string
-  preco: number
+  cardapio: Cardapio
 }
 
-const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
+const CardPerfilItem = ({ cardapio }: Props) => {
   const dispatch = useDispatch()
 
   const [modalIsVisible, setModalIsVisible] = useState(false)
@@ -36,7 +32,9 @@ const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
   }
 
   const addToCart = () => {
-    dispatch(add())
+    dispatch(add(cardapio))
+    dispatch(open())
+    setModalIsVisible(false)
   }
 
   return (
@@ -44,10 +42,10 @@ const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
       <section>
         <CardPerfil>
           <div>
-            <img src={foto} alt={nome} />
+            <img src={cardapio.foto} alt={cardapio.nome} />
           </div>
-          <h3>{nome}</h3>
-          <p>{getDescricao(descricao)}</p>
+          <h3>{cardapio.nome}</h3>
+          <p>{getDescricao(cardapio.descricao)}</p>
           <ButtonCard
             onClick={() => {
               setModalIsVisible(true)
@@ -64,15 +62,16 @@ const CardPerfilItem = ({ foto, nome, descricao, porcao, preco }: Props) => {
             <img onClick={() => setModalIsVisible(false)} src={fechar} alt="" />
           </header>
           <ModalBody>
-            <img src={foto} />
+            <img src={cardapio.foto} />
             <div>
-              <h4>{nome}</h4>
+              <h4>{cardapio.nome}</h4>
               <p>
-                {descricao} <br /> <br />{' '}
+                {cardapio.descricao} <br /> <br />{' '}
               </p>
-              <p>Serve: de {porcao}</p>
-              <button>
-                Adicionar ao carrinho - <span>{formataPreco(preco)}</span>
+              <p>Serve: de {cardapio.porcao}</p>
+              <button onClick={addToCart}>
+                Adicionar ao carrinho -{' '}
+                <span>{formataPreco(cardapio.preco)}</span>
               </button>
             </div>
           </ModalBody>

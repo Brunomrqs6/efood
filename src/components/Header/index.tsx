@@ -17,6 +17,7 @@ export type Props = {
 
 const Header = ({ headerBig }: Props) => {
   const dispatch = useDispatch()
+  const { items } = useSelector((state: RootReducer) => state.cart)
 
   const openCart = () => {
     dispatch(open())
@@ -44,7 +45,7 @@ const Header = ({ headerBig }: Props) => {
             <Link to="/">
               <img src={logo} alt="logo" />
             </Link>
-            <p onClick={openCart}>0 produtos(s) no carrinho</p>
+            <p onClick={openCart}>{items.length} produtos(s) no carrinho</p>
           </div>
         </ContainerHeaderPerfil>
       )}

@@ -14,11 +14,14 @@ const CardListPerfil = ({ items }: Props) => {
           {items.map((item) => (
             <li key={item.id}>
               <CardPerfilItem
-                descricao={item.descricao}
-                foto={item.foto}
-                nome={item.nome}
-                porcao={item.porcao}
-                preco={item.preco}
+                cardapio={{
+                  foto: item.foto,
+                  preco: item.preco,
+                  id: item.id,
+                  nome: item.nome,
+                  descricao: item.descricao,
+                  porcao: item.porcao
+                }}
               />
             </li>
           ))}
