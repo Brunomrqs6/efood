@@ -97,3 +97,32 @@ export const Button = styled.button`
   border-radius: 2px;
   cursor: pointer;
 `
+
+export const Form = styled.form`
+  color: ${cores.branco};
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: bold;
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background-color: ${cores.bege};
+    border: none;
+  }
+
+  div {
+    margin-top: 24px;
+
+    button {
+      margin-bottom: 8px;
+    }
+  }
+`

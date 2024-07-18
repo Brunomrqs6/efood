@@ -6,8 +6,6 @@ import Banner from '../../components/Banner'
 import Footer from '../../components/Footer'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Restaurante } from '../Home'
-// import { Cardapio, Food } from '../Home'
 
 import { useGetCardapioQuery } from '../../services/api'
 

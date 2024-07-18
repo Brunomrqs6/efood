@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { breakpoints, cores } from '../../styles'
 import MacarraoFundo from '../../assets/images/image2.png'
-import { Restaurante } from '../../pages/Home'
 
 export const ContainerBanner = styled.div`
   width: 100%;

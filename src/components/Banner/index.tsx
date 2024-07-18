@@ -1,5 +1,5 @@
 import MacarraoBanner from '../../assets/images/image2.png'
-import { Restaurante } from '../../pages/Home'
+
 import {
   CategoryText,
   ContainerBanner,

@@ -6,7 +6,6 @@ import fechar from '../../assets/images/close 1.png'
 import { useState } from 'react'
 import { add, open } from '../../store/reducers/cart'
 import { useDispatch } from 'react-redux'
-import { Cardapio } from '../../pages/Home'
 
 type Props = {
   cardapio: Cardapio

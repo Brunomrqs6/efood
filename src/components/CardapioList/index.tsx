@@ -1,4 +1,3 @@
-import { Cardapio, Restaurante } from '../../pages/Home'
 import CardPerfilItem from '../ProductCardapio'
 import { ContainerCardList, List } from './styles'
 
