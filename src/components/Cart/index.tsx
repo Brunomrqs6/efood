@@ -1,5 +1,4 @@
 import {
-  Button,
   CartContainer,
   FoodImg,
   Form,
@@ -18,10 +17,19 @@ import { close, remove } from '../../store/reducers/cart'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
 import { usePurchaseMutation } from '../../services/api'
+import { useState } from 'react'
+import { Button } from '../Button'
+
+type Props = {
+  onClick?: () => void
+  children: string
+}
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
   const [purchase, { data, isSuccess, isLoading }] = usePurchaseMutation()
+  const [delivery, setDelivery] = useState(false)
+  const [showCart, setShowCart] = useState(true)
 
   const dispatch = useDispatch()
 
@@ -106,155 +114,168 @@ const Cart = () => {
     }
   })
 
+  const showCartConst = () => {
+    setShowCart(false)
+    setDelivery(true)
+  }
+
   return (
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <SideBar>
-        <div>
-          <ul>
-            {items.map((item) => (
-              <Item key={item.id}>
-                <FoodImg src={item.foto} alt="" />
-                <div>
-                  <ProductName>{item.nome}</ProductName>
-                  <p>{formataPreco(item.preco)}</p>
-                </div>
-                <Lixeira
-                  onClick={() => removeItem(item.id)}
-                  src={lixeira}
-                  alt=""
-                />
-              </Item>
-            ))}
-          </ul>
-          <ValorDiv>
-            <p>Valor Total</p>
-            <p>{formataPreco(getPrice())}</p>
-          </ValorDiv>
-          <Button>Continuar com a entrega</Button>
-        </div>
-        <div>
-          <h3>Entrega</h3>
-          <Form onSubmit={form.handleSubmit}>
-            <label htmlFor="name">Quem irá receber</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={form.values.name}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-
-            <label htmlFor="address">Endereço</label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value={form.values.address}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-
-            <label htmlFor="city">Cidade</label>
-            <input
-              type="text"
-              id="city"
-              name="city"
-              value={form.values.city}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-
-            <label htmlFor="cep">CEP</label>
-            <input
-              type="text"
-              id="cep"
-              name="cep"
-              value={form.values.cep}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-
-            <label htmlFor="number">Número</label>
-            <input
-              type="text"
-              id="number"
-              name="number"
-              value={form.values.number}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-
-            <label htmlFor="complement">Complemento (opcional)</label>
-            <input
-              type="text"
-              id="complement"
-              name="complement"
-              value={form.values.complement}
-              onBlur={form.handleBlur}
-              onChange={form.handleChange}
-            />
-            <div>
-              <label htmlFor="cardName">Nome no cartão</label>
+        {showCart ? (
+          <div>
+            <ul>
+              {items.map((item) => (
+                <Item key={item.id}>
+                  <FoodImg src={item.foto} alt="" />
+                  <div>
+                    <ProductName>{item.nome}</ProductName>
+                    <p>{formataPreco(item.preco)}</p>
+                  </div>
+                  <Lixeira
+                    onClick={() => removeItem(item.id)}
+                    src={lixeira}
+                    alt=""
+                  />
+                </Item>
+              ))}
+            </ul>
+            <ValorDiv>
+              <p>Valor Total</p>
+              <p>{formataPreco(getPrice())}</p>
+            </ValorDiv>
+            <Button onClick={showCartConst}>Continuar com a entrega</Button>
+          </div>
+        ) : (
+          ''
+        )}
+        {delivery ? (
+          <div>
+            <h3>Entrega</h3>
+            <Form onSubmit={form.handleSubmit}>
+              <label htmlFor="name">Quem irá receber</label>
               <input
                 type="text"
-                id="cardName"
-                name="cardName"
-                value={form.values.cardName}
+                id="name"
+                name="name"
+                value={form.values.name}
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
               />
 
-              <label htmlFor="cardNumber">Número do cartão</label>
+              <label htmlFor="address">Endereço</label>
               <input
                 type="text"
-                id="cardNumber"
-                name="cardNumber"
-                value={form.values.cardNumber}
+                id="address"
+                name="address"
+                value={form.values.address}
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
               />
 
-              <label htmlFor="cardCode">CVV</label>
+              <label htmlFor="city">Cidade</label>
               <input
                 type="text"
-                id="cardCode"
-                name="cardCode"
-                value={form.values.cardCode}
+                id="city"
+                name="city"
+                value={form.values.city}
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
               />
 
-              <label htmlFor="monthExpires">Mês de vencimento</label>
+              <label htmlFor="cep">CEP</label>
               <input
                 type="text"
-                id="monthExpires"
-                name="monthExpires"
-                value={form.values.monthExpires}
+                id="cep"
+                name="cep"
+                value={form.values.cep}
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
               />
 
-              <label htmlFor="yearExpires">Ano de vencimento</label>
+              <label htmlFor="number">Número</label>
               <input
                 type="text"
-                id="yearExpires"
-                name="yearExpires"
-                value={form.values.yearExpires}
+                id="number"
+                name="number"
+                value={form.values.number}
                 onBlur={form.handleBlur}
                 onChange={form.handleChange}
               />
 
+              <label htmlFor="complement">Complemento (opcional)</label>
+              <input
+                type="text"
+                id="complement"
+                name="complement"
+                value={form.values.complement}
+                onBlur={form.handleBlur}
+                onChange={form.handleChange}
+              />
               <div>
-                <Button onSubmit={form.handleSubmit}>
-                  Finalizar pagamento
-                </Button>
-                <Button>Voltar para a edição de endereço</Button>
+                <label htmlFor="cardName">Nome no cartão</label>
+                <input
+                  type="text"
+                  id="cardName"
+                  name="cardName"
+                  value={form.values.cardName}
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                />
+
+                <label htmlFor="cardNumber">Número do cartão</label>
+                <input
+                  type="text"
+                  id="cardNumber"
+                  name="cardNumber"
+                  value={form.values.cardNumber}
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                />
+
+                <label htmlFor="cardCode">CVV</label>
+                <input
+                  type="text"
+                  id="cardCode"
+                  name="cardCode"
+                  value={form.values.cardCode}
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                />
+
+                <label htmlFor="monthExpires">Mês de vencimento</label>
+                <input
+                  type="text"
+                  id="monthExpires"
+                  name="monthExpires"
+                  value={form.values.monthExpires}
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                />
+
+                <label htmlFor="yearExpires">Ano de vencimento</label>
+                <input
+                  type="text"
+                  id="yearExpires"
+                  name="yearExpires"
+                  value={form.values.yearExpires}
+                  onBlur={form.handleBlur}
+                  onChange={form.handleChange}
+                />
+
+                <div>
+                  <Button onClick={form.handleSubmit}>
+                    Finalizar pagamento
+                  </Button>
+                  <Button>Voltar para a edição de endereço</Button>
+                </div>
               </div>
-            </div>
-          </Form>
-        </div>
+            </Form>
+          </div>
+        ) : (
+          ''
+        )}
       </SideBar>
     </CartContainer>
   )

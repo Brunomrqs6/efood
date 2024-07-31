@@ -85,19 +85,6 @@ export const ValorDiv = styled.div`
   margin-bottom: 16px;
 `
 
-export const Button = styled.button`
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
-  width: 100%;
-  padding: 4px;
-  border: none;
-  background-color: ${cores.bege};
-  color: ${cores.vermelho};
-  border-radius: 2px;
-  cursor: pointer;
-`
-
 export const Form = styled.form`
   color: ${cores.branco};
   font-size: 14px;
